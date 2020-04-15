@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import TechSelectOption from '../techs/TechSelectOptions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import PropTypes from 'prop-types';
 
@@ -62,9 +63,7 @@ const EditLogModel = ({ current }) => {
               <option value='' disabled>
                 select Technician
               </option>
-              <option value='John Deo'>John Deo</option>
-              <option value='Sam Smith'>Sam Smith</option>
-              <option value='Sarra Willson'>Sarra Willson</option>
+              <TechSelectOption />
             </select>
           </div>
         </div>
@@ -104,12 +103,8 @@ const modalStyle = {
   height: '75%',
 };
 
-EditLogModel.propTypes = {
-  current: PropTypes.object.isRequired,
-};
 const mapStateToProps = (state) => ({
   current: state.log.current,
-  updateLog: PropTypes.func.isRequired,
 });
 
 export default connect(mapStateToProps, {})(EditLogModel);
