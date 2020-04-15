@@ -18,6 +18,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_LOG:
+      return {
+        ...state,
+        loading: false,
+        logs: state.logs.map((log) =>
+          log.id === action.payload.id ? action.payload : log
+        ),
+      };
     case SEARCH_LOGS:
       return {
         ...state,

@@ -11,22 +11,22 @@
       "id": 2,
       "message": "Fixed hard drive on workstation 002",
       "attention": false,
-      "tech": "John Doe",
-      "date": "2019-05-31T16:18:04.245Z"
+      "tech": "Sara Wilson",
+      "date": "2020-04-15T17:13:54.786Z"
     },
     {
       "id": 3,
       "message": "1122 wireless down",
       "attention": true,
-      "tech": "Sam Smith",
-      "date": "2020-04-14T10:23:45.083Z"
+      "tech": "Sara Wilson",
+      "date": "2020-04-15T17:08:41.364Z"
     },
     {
       "id": 4,
       "message": "Workstation 026 is up and running",
       "attention": false,
       "tech": "Sara Wilson",
-      "date": "2019-05-31T19:57:35.544Z"
+      "date": "2020-04-15T17:11:08.432Z"
     }
   ],
   "techs": [

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { updateLog, setLoading } from '../../actions/logActions';
 import TechSelectOption from '../techs/TechSelectOptions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 import PropTypes from 'prop-types';
 
-const EditLogModel = ({ current }) => {
+const EditLogModel = ({ current, updateLog, setLoading }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState('');
@@ -30,6 +31,8 @@ const EditLogModel = ({ current }) => {
         date: new Date(),
       };
 
+      setLoading();
+      updateLog(newLog);
       //   Clear Fields
       setMessage('');
       setTech('');
@@ -107,4 +110,6 @@ const mapStateToProps = (state) => ({
   current: state.log.current,
 });
 
-export default connect(mapStateToProps, {})(EditLogModel);
+export default connect(mapStateToProps, { updateLog, setLoading })(
+  EditLogModel
+);

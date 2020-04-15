@@ -46,6 +46,31 @@ export const searchLogs = (text) => async (dispatch) => {
   }
 };
 
+export const updateLog = (log) => async (dispatch) => {
+  try {
+    console.log('gpoing to updagte log');
+    const res = await fetch(`/logs/${log.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(log),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await res.json();
+
+    dispatch({
+      type: UPDATE_LOG,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err.response.statusText,
+    });
+  }
+};
+
 export const addLog = (log) => async (dispatch) => {
   try {
     setLoading();
