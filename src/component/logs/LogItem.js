@@ -2,19 +2,23 @@ import React from 'react';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteLog } from '../../actions/logActions';
+import { deleteLog, currentSet } from '../../actions/logActions';
 
-const LogItem = ({ log, deleteLog }) => {
+const LogItem = ({ log, deleteLog, currentSet }) => {
   const onDelete = () => {
     console.log('i am at the start');
     deleteLog(log.id);
     console.log('i am at the end ');
   };
 
+  const onCurrent = () => {
+    currentSet(log);
+  };
   return (
     <li className='collection-item'>
       <div>
         <a
+          onClick={onCurrent}
           href='#edit-log-modal'
           className={`modal-trigger ${
             log.attention ? 'red-text' : 'blue-text'
@@ -41,4 +45,4 @@ LogItem.proptype = {
   deleteLog: PropTypes.func.isRequired,
   setCurrent: PropTypes.func.isRequired,
 };
-export default connect(null, { deleteLog })(LogItem);
+export default connect(null, { deleteLog, currentSet })(LogItem);
